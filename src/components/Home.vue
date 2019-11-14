@@ -11,10 +11,7 @@
                 <el-col :span="10" :offset="7">
                     <el-card>
                         <el-breadcrumb separator-class="el-icon-arrow-right">
-                            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-                            <el-breadcrumb-item>Dir1</el-breadcrumb-item>
-                            <el-breadcrumb-item>Dir2</el-breadcrumb-item>
-                            <el-breadcrumb-item>Dir3</el-breadcrumb-item>
+                            <el-breadcrumb-item v-for="(item,index) in paths">{{item.path}}</el-breadcrumb-item>
                         </el-breadcrumb>
                     </el-card>
 
@@ -41,7 +38,22 @@ export default {
   components: {
       Directory,
       File
-  }
+  },
+    data() {
+      return {
+          paths: [
+              {
+                  path: "home"
+              },
+              {
+                  path: "dir1"
+              },
+              {
+                  path: "dir2"
+              }
+          ]
+      }
+    }
 }
 </script>
 

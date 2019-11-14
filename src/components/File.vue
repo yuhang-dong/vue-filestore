@@ -21,6 +21,8 @@ export default {
     },
     data() {
         return {
+            fileName: "fileName",
+            fileSize: "125 KB",
             markdown: "\`\`\`javascript\n" +
                 "exports default {\n" +
                 "    methods: {\n" +
