@@ -1,60 +1,108 @@
 <template>
-<!--    主页-->
+    <!--    主页-->
     <el-container class="min-percent">
 
         <el-header class="header">
-
+            <el-row style="height: 100%;display: flex;align-items: center;">
+                <el-col :span="18" :offset="3">
+                    <i style="color: red;font-size: larger">Vue And Go File Website</i>
+                </el-col>
+            </el-row>
         </el-header>
 
         <el-main class="main">
             <el-row>
-                <el-col :span="10" :offset="7">
+                <el-col :span="18" :offset="3">
                     <el-card>
                         <el-breadcrumb separator-class="el-icon-arrow-right">
-                            <el-breadcrumb-item v-for="(item,index) in paths">{{item.path}}</el-breadcrumb-item>
+                            <el-breadcrumb-item v-for="(item,index) in paths" :to="item.completeUrl">{{item.path}}
+                            </el-breadcrumb-item>
                         </el-breadcrumb>
                     </el-card>
 
+                    <el-card>
+                        <el-row>
+                            <!--                    按钮组-->
+                            <!--                        上传按钮-->
+                            <el-col :span="1">
+                                <UploadButton/>
+                            </el-col>
+                            <!--                        隐藏按钮-->
+                            <el-col :span="1">
+                                <el-button size="mini" type="danger" @click="hidden"><i class="far"
+                                                                                        :class="eyeClass"></i>
+                                </el-button>
+                            </el-col>
+
+                        </el-row>
+
+
+                    </el-card>
+
                     <Directory style="margin-bottom: 50px"/>
-                    <File />
+                    <File/>
                 </el-col>
             </el-row>
 
         </el-main>
-
+        <iframe src="https://zhanyuzhang.github.io/lovely-cat/cat.html" border="0" id="catIframe"></iframe>
         <el-footer class="footer">
+            <el-row style="height: 100%;display: flex;justify-content: center;align-items: center">
 
+                    <i style="color: gray;font-size: smaller">Vue And Go File Website.And Others Information hahaha</i>
+
+            </el-row>
         </el-footer>
     </el-container>
 
 </template>
 
 <script>
-// @ is an alias to /src
-import Directory from "./Directory";
-import File from "./File";
-export default {
-  name: 'home',
-  components: {
-      Directory,
-      File
-  },
-    data() {
-      return {
-          paths: [
-              {
-                  path: "home"
-              },
-              {
-                  path: "dir1"
-              },
-              {
-                  path: "dir2"
-              }
-          ]
-      }
+    // @ is an alias to /src
+    import Directory from "./Directory";
+    import File from "./File";
+    import UploadButton from "./UploadButton";
+
+    export default {
+        name: 'home',
+        components: {
+            Directory,
+            File,
+            UploadButton
+        },
+        data() {
+            return {
+                hiddenFile: true,
+            }
+        },
+        computed: {
+            paths() {
+                let ans = [];
+                let completeUrl = "";
+                for (let i of this.$store.state.urls.split("/")) {
+                    completeUrl += "/" + i;
+                    ans.push({
+                        path: i,
+                        completeUrl
+                    })
+                }
+                return ans;
+            },
+            eyeClass() {
+                return {
+                    "fa-mavon-eye": this.hiddenFile,
+                    "fa-mavon-eye-slash": !this.hiddenFile
+                }
+            }
+        },
+        methods: {
+            hidden() {
+                // 图标变
+                this.hiddenFile = !this.hiddenFile;
+                // TODO 显示/隐藏文件
+            }
+        }
     }
-}
 </script>
 
 <style scope>
@@ -62,8 +110,9 @@ export default {
     .min-percent {
         min-height: 100%;
     }
+
     .header {
-        border-bottom: 1px solid rgba(0,0,0,.22);
+        border-bottom: 1px solid rgba(0, 0, 0, .22);
     }
 
     .main {
@@ -72,6 +121,27 @@ export default {
     }
 
     .footer {
-        border-top: 1px solid rgba(0,0,0,.22);
+        border-top: 1px solid rgba(0, 0, 0, .22);
+    }
+
+    [class*=" fa-mavon-"]::before, [class^="fa-mavon-"]::before {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    #catIframe {
+        position: fixed;
+
+        width: 400px;
+
+        padding: 50px 0;
+
+        margin-right: 0px;
+
+        right: 0;
+
+        border: 0;
+
+        bottom: 0;
     }
 </style>

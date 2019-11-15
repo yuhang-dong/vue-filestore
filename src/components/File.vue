@@ -5,15 +5,11 @@
             <span>卡片名称</span>
             <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
         </div>
-<!--        <vue-markdown>-->
-<!--            {{markdown}}-->
-<!--        </vue-markdown>-->
         <mavon-editor :value="markdown" :editable="false" :toolbarsFlag="false" :subfield="false" defaultOpen="preview"/>
     </el-card>
 </template>
 
 <script>
-    // import VueMarkdown from 'vue-markdown'
 export default {
     name: 'file',
     components: {

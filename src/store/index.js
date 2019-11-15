@@ -5,12 +5,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    isCollapsed: false
+    urls: 'home/dir1/dir2'
   },
   mutations: {
-    menusChange(state) {
-      state.isCollapsed = !state.isCollapsed
-    }
   },
   actions: {
   },
