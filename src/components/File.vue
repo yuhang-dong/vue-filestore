@@ -37,13 +37,13 @@ export default {
                 "               /**\n" +
                 "               * $vm 指为mavonEditor实例，可以通过如下两种方式获取\n" +
                 "               * 1. 通过引入对象获取: `import {mavonEditor} from ...` 等方式引入后，`$vm`为`mavonEditor`\n" +
-                "               * 2. 通过$refs获取: html声明ref : `<mavon-editor ref=md ></mavon-editor>，`$vm`为 `this.$refs.md`\n" +
+                "               * 2. 通过$refs获取: html声明ref : \`<mavon-editor ref=md ></mavon-editor>，`$vm`为 `this.$refs.md`\n" +
                 "               */\n" +
                 "               $vm.$img2Url(pos, url);\n" +
                 "           })\n" +
                 "        }\n" +
                 "    }\n" +
-                "}" +
+                "}\n" +
                 "\`\`\`"
         }
 
