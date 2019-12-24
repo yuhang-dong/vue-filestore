@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    urls: 'home/dir1/dir2',
+    urls: 'home',
     logined: false
   },
   mutations: {

@@ -40,8 +40,8 @@
 
                     </el-card>
 
-                    <Directory style="margin-bottom: 50px"/>
-                    <File/>
+                    <Directory style="margin-bottom: 50px" :myfiles="directory.data" />
+                    <File :fileName="fileName" :fileContent="fileContent"/>
                 </el-col>
             </el-row>
 
@@ -74,10 +74,16 @@
         data() {
             return {
                 hiddenFile: true, // 该文件下是否隐藏文件
-                directory: {}, // 该文件夹下的文件（文件夹和文件）
+                directory: {
+                    data : []
+                }, // 该文件夹下的文件（文件夹和文件）
                 fileName: '', // 该文件夹下需要显示文件内容的文件名
-                fileContent: '', // 显示的文件的文件内容
+                fileContent: '' // 显示的文件的文件内容
             }
+        },
+        created() {
+            // 获取总的数据
+            this.getData(this.$store.state.urls);
         },
         computed: {
             paths() {
@@ -104,8 +110,28 @@
                 // 图标变
                 this.hiddenFile = !this.hiddenFile;
                 // TODO 显示/隐藏文件
+            },
+            getData(url) {
+                //  发起ajax请求获得数据.
+
+                let that = this;
+                this.$ajax.post('/files', {urls: url}).then(function(resp){
+                    // 数据赋值
+                    let data = resp.data;
+                    if(data.status) {
+                        that.fileName = data.fileName;
+                        that.fileContent = data.fileContent;
+                        that.directory.data = data.directory;
+                    } else {
+                        that.$message.error(data.reason);
+                    }
+                }).catch(function(error) {
+                    console.log(error);
+                    // that.$message.warning(error);
+                })
             }
-        }
+        },
+
     }
 </script>
 

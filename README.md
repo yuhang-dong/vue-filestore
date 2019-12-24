@@ -13,8 +13,11 @@ Develop a file store application. This repo just is front-end pages. vue*+elemen
 
 ## show - timeline
 
-* 2019.11.14
+* 2019.11.14 主界面大致配色与设计
     ![主界面大致配色与设计](https://raw.githubusercontent.com/Ollyder/vue-filestore/master/assets/pic-20191114.png)
 
-* 2019.12.24
+* 2019.12.24 登录界面完成
     ![登录界面完成](https://raw.githubusercontent.com/Ollyder/vue-filestore/master/assets/login.png)
+
+* 2019.12.24 主页面数据交互设计完成
+    ![]()https://raw.githubusercontent.com/Ollyder/vue-filestore/master/assets/index.png

@@ -2,7 +2,7 @@
 
     <el-card shadow="always" >
         <el-table
-                :data="files"
+                :data="myfiles"
                 style="width: 100%">
             <el-table-column
                     prop="date"
@@ -31,9 +31,9 @@
     export default {
         name: 'directory',
         // 声明props
-        props: ['files'],
+        props: ['myfiles'],
         data() {
-
+            return {}
         }
     }
 
