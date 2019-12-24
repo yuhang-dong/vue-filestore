@@ -39,4 +39,8 @@
     #nav a.router-link-exact-active {
         color: #42b983;
     }
+
+    #nprogress .bar {
+        background-color: #F24646 !important;
+    }
 </style>
