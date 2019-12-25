@@ -1,15 +1,14 @@
 # vue-filestore
-Develop a file store application. This repo just is front-end pages. vue*+elementUI
+开发一个网盘项目(file store application)，该仓库为前端显示页面，所有数据由mockjs虚拟生成。
 
 
 
 ## Want
-1. Show Dictionary
-2. Show README.md content in Main Page
-3. Download and upload
-4. "操作按钮" should have "raw string" "download"...
-4. For files,"*.md" show render style, "*.other" show highlight
-4. and so on...
+
+- [x] 登录界面
+- [x] 主页面
+- [ ] 文件显示
+- [ ] 文件上传、下载、是否公开、公开是否匿名
 
 ## show - timeline
 
@@ -20,4 +19,4 @@ Develop a file store application. This repo just is front-end pages. vue*+elemen
     ![登录界面完成](https://raw.githubusercontent.com/Ollyder/vue-filestore/master/assets/login.png)
 
 * 2019.12.24 主页面数据交互设计完成
-    ![]()https://raw.githubusercontent.com/Ollyder/vue-filestore/master/assets/index.png
+    ![](https://raw.githubusercontent.com/Ollyder/vue-filestore/master/assets/index.png)
