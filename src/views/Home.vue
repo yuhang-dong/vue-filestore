@@ -12,7 +12,7 @@
 
         <el-main class="main">
             <el-row>
-                <el-col :span="18" :offset="3">
+                <el-col :span="16" :offset="4">
                     <el-card>
                         <el-breadcrumb separator-class="el-icon-arrow-right">
 <!--                            TODO: 主页的改动不需要使用到vue router ,直接ajax然后数据替换即可-->
@@ -40,7 +40,7 @@
 
                     </el-card>
 
-                    <Directory style="margin-bottom: 50px" :myfiles="directory.data" />
+                    <Directory style="margin-bottom: 50px" :myfiles="directory.data" v-on:refresh="refresh"/>
                     <File :fileName="fileName" :fileContent="fileContent"/>
                 </el-col>
             </el-row>
@@ -83,7 +83,7 @@
         },
         created() {
             // 获取总的数据
-            this.getData(this.$store.state.urls);
+            this.getData(this.$store.state.urls, false);
         },
         computed: {
             paths() {
@@ -106,16 +106,24 @@
             }
         },
         methods: {
+            // 重新加载
+            refresh() {
+                getData(this.$store.state.urls, false);
+            },
             hidden() {
                 // 图标变
                 this.hiddenFile = !this.hiddenFile;
                 // TODO 显示/隐藏文件
             },
-            getData(url) {
+            /**
+             * url: 显示文件的路径
+             * showhidden: 是否显示隐藏文件
+             */
+            getData(url, showhidden) {
                 //  发起ajax请求获得数据.
 
                 let that = this;
-                this.$ajax.post('/files', {urls: url}).then(function(resp){
+                this.$ajax.post('/files', {urls: url, showHidden: showhidden}).then(function(resp){
                     // 数据赋值
                     let data = resp.data;
                     if(data.status) {
@@ -148,6 +156,7 @@
     .main {
         background-color: #e2e2e2;
         min-height: 100%;
+        
     }
 
     .footer {
