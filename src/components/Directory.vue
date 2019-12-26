@@ -135,7 +135,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .point {
   margin-left: 3px;
   cursor: pointer;

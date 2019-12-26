@@ -4,8 +4,29 @@
 
         <el-header class="header">
             <el-row style="height: 100%;display: flex;align-items: center;">
-                <el-col :span="18" :offset="3">
+                <el-col :span="9" :offset="3">
                     <i class="head_title">Vue And Go File Website</i>
+                </el-col>
+                <el-col  :offset="7" :span="5">
+
+                      <el-popover
+                        placement="bottom"
+                        width="200"
+                        trigger="hover">
+                        <div>
+                            <el-progress :percentage="50"></el-progress>
+                            
+                            <el-progress :percentage="100" status="success"></el-progress>
+                            <el-progress :percentage="100" status="warning"></el-progress>
+                            <el-progress :percentage="50" status="exception"></el-progress>
+                        </div>
+                        <el-badge :value="-1" class="point" slot="reference" :hidden="false">
+                            <el-avatar > user </el-avatar>
+                        </el-badge>
+                        
+                        
+                    </el-popover>
+                    
                 </el-col>
             </el-row>
         </el-header>
@@ -15,7 +36,7 @@
                 <el-col :span="16" :offset="4">
                     <el-card>
                         <el-breadcrumb separator-class="el-icon-arrow-right">
-<!--                            TODO: 主页的改动不需要使用到vue router ,直接ajax然后数据替换即可-->
+<!-- TODO: 主页的改动不需要使用到vue router ,直接ajax然后数据替换即可-->
                             <el-breadcrumb-item v-for="(item,index) in paths" :to="item.completeUrl">{{item.path}}
                             </el-breadcrumb-item>
                         </el-breadcrumb>
@@ -23,12 +44,12 @@
 
                     <el-card>
                         <el-row>
-                            <!--                    按钮组-->
-                            <!--                        上传按钮-->
+                            <!--按钮组-->
+                            <!--上传按钮-->
                             
                                 <UploadButton class="margin_left"/>
                             
-                            <!--                        隐藏按钮-->
+                            <!--隐藏按钮-->
                             
                                 <el-button size="mini" type="danger" @click="hidden" class="margin_left">
                                     <i class="far" :class="eyeClass"></i>
@@ -143,7 +164,7 @@
     }
 </script>
 
-<style scope>
+<style scoped>
 
     .min-percent {
         min-height: 100%;
@@ -197,5 +218,9 @@
     .margin_left {
         margin-left: 3px !important;
         float: left;
+    }
+
+    .point {
+        cursor: pointer;
     }
 </style>

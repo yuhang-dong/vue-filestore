@@ -27,9 +27,9 @@ Mock.mock('/files', /post/i, function(opt) {
             name: Random.cname(),
             date: Random.date(),
             size: Random.float(0, 15682),
-            self: true, // 自己的文件
-            public: true, // 非公开
-            anoymous: true,
+            self: Random.boolean(), // 自己的文件
+            public: Random.boolean(), // 非公开
+            anoymous: Random.boolean(),
             id: 1234
         })
     }
