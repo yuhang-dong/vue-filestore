@@ -25,15 +25,15 @@
                         <el-row>
                             <!--                    按钮组-->
                             <!--                        上传按钮-->
-                            <el-col :span="1">
-                                <UploadButton/>
-                            </el-col>
+                            
+                                <UploadButton class="margin_left"/>
+                            
                             <!--                        隐藏按钮-->
-                            <el-col :span="1">
-                                <el-button size="mini" type="danger" @click="hidden"><i class="far"
-                                                                                        :class="eyeClass"></i>
+                            
+                                <el-button size="mini" type="danger" @click="hidden" class="margin_left">
+                                    <i class="far" :class="eyeClass"></i>
                                 </el-button>
-                            </el-col>
+                            
 
                         </el-row>
 
@@ -134,8 +134,8 @@
                         that.$message.error(data.reason);
                     }
                 }).catch(function(error) {
-                    console.log(error);
-                    // that.$message.warning(error);
+                    
+                    that.$message.warning(error);
                 })
             }
         },
@@ -192,5 +192,10 @@
 
     .head_title:hover {
         color: red;
+    }
+
+    .margin_left {
+        margin-left: 3px !important;
+        float: left;
     }
 </style>

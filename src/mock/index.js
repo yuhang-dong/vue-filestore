@@ -30,7 +30,7 @@ Mock.mock('/files', /post/i, function(opt) {
             self: true, // 自己的文件
             public: true, // 非公开
             anoymous: true,
-
+            id: 1234
         })
     }
     
@@ -43,4 +43,18 @@ Mock.mock('/files', /post/i, function(opt) {
         fileName : fileName
     }
 
+})
+
+/** 模拟文件信息 */
+Mock.mock(RegExp('/info.*'), "get", function(opt) {
+    // console.log(opt); 无法通过opt拿到get的params
+    return {
+        status: true,
+        info: {
+            username: Random.cname(),
+            uploadtime: Random.datetime(),
+            filesize: Random.integer(),
+            md5: Random.id()
+        }
+    }
 })

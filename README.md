@@ -9,7 +9,8 @@
 - [x] 主页面
 - [x] 文件显示
 - [x] 文件上传、下载、是否公开、公开是否匿名
-- [ ] 显示文件信息（上传人、上传时间、文件大小、[文件夹中文件数量]等
+- [x] 显示文件信息（上传人、上传时间、文件大小、[文件夹中文件数量]等
+- [ ] 登录的用户信息设置
 
 ## show - timeline
 
@@ -23,3 +24,6 @@
     ![](https://raw.githubusercontent.com/Ollyder/vue-filestore/master/assets/index.png)
 * 2019.12.25 文件是否公开，公开是否匿名完成
     ![](https://raw.githubusercontent.com/Ollyder/vue-filestore/master/assets/icons.png)
+
+* 2019.12.26 显示文件（文件夹）信息
+    ![](https://raw.githubusercontent.com/Ollyder/vue-filestore/master/assets/info.png)
