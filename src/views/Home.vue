@@ -8,6 +8,9 @@
                     <i class="head_title">Vue And Go File Website</i>
                 </el-col>
                 <el-col  :offset="7" :span="5">
+                      
+
+
 
                       <el-popover
                         placement="bottom"
