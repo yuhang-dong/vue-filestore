@@ -9,16 +9,12 @@
                 </el-col>
                 <el-col  :offset="7" :span="5">
                       
-
-
-
                       <el-popover
                         placement="bottom"
                         width="200"
                         trigger="hover">
                         <div>
                             <el-progress :percentage="50"></el-progress>
-                            
                             <el-progress :percentage="100" status="success"></el-progress>
                             <el-progress :percentage="100" status="warning"></el-progress>
                             <el-progress :percentage="50" status="exception"></el-progress>
@@ -39,7 +35,7 @@
                 <el-col :span="16" :offset="4">
                     <el-card>
                         <el-breadcrumb separator-class="el-icon-arrow-right">
-<!-- TODO: 主页的改动不需要使用到vue router ,直接ajax然后数据替换即可-->
+<!-- FIXME: 主页的改动不需要使用到vue router ,直接ajax然后数据替换即可-->
                             <el-breadcrumb-item v-for="(item,index) in paths" :to="item.completeUrl">{{item.path}}
                             </el-breadcrumb-item>
                         </el-breadcrumb>
