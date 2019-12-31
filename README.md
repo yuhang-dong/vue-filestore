@@ -1,7 +1,33 @@
 # vue-filestore
 开发一个网盘项目(file store application)，该仓库为前端显示页面，所有数据由mockjs虚拟生成。
 
+## 如何使用
 
+打开命令行工具，然后：
+
+1. 下载项目
+    ```shell
+    git clone git@github.com:yuhang-dong/vue-filestore.git
+    ```
+2. 进入项目文件夹
+    ```shell
+    cd vue-filestore
+    ```
+3. 安装依赖
+    ```shell
+    npm install
+    ```
+4. 运行
+    ```shell
+    npm run serve
+    ```
+5. 打开浏览器，访问 `http://localhost:8080` 即可看到前端页面
+
+## 分支说明
+
+* master 只为演示前端界面的分支，数据由mockjs提供，[GitHub Page https://yuhang-dong.github.io/vue-filestore/](https://yuhang-dong.github.io/vue-filestore/)中部署的就是该分支的代码
+
+* server 用于前端界面与后端工程的连接，后端工程初步打算用go实现，具体后端工程见项目 [go-filestore https://github.com/yuhang-dong/go-filestore](https://github.com/yuhang-dong/go-filestore)。对于在与后端连接过程中出现的新想法与新的界面显示会同步更新到master并同步部署到 github page 中。
 
 ## Want
 
