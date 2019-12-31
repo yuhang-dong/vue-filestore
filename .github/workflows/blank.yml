@@ -1,6 +1,9 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+    - deploy
 
 jobs:
   build-and-deploy:
@@ -14,6 +17,8 @@ jobs:
         uses: actions/setup-node@v1.1.0
       - name: npm install, build
         run: |
+          git checkout master
+          git merge deploy
           npm install
           npm run build
       - name: commit
