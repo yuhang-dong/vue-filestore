@@ -18,7 +18,7 @@ jobs:
           npm install
           npm run build
       - name: commit
-      - run: |
+        run: |
           git config user.email 1208894193@qq.com
           git config user.name yuhang-dong-ci
           git add .
