@@ -11,7 +11,7 @@
           <el-input v-model="user.password" placeholder="密码" show-password></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm('elform')">登录</el-button>
+          <el-button type="primary" @click="submitForm('elform')">登陆</el-button>
           <el-button @click="resetForm('elform')">重置</el-button>
         </el-form-item>
       </el-form>
