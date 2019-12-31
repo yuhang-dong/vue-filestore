@@ -1,0 +1,14 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build-and-deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: build and depoly vue project to githubspage
+      run: npm install
+    - name: Run a multi-line script
+      run: npm run serve
