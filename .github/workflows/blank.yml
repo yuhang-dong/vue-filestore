@@ -18,7 +18,7 @@ jobs:
       - name: npm install, build
         run: |
           git checkout master
-          git merge deploy
+          git merge origin/deploy
           npm install
           npm run build
       - name: commit
