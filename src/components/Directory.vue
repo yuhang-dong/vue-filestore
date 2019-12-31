@@ -57,9 +57,10 @@
         <template slot-scope="scope">
           <!--                显示不同的按钮，都可以显示信息，文件夹可以下载压缩包，文件可以复制URL，显示分享二维码-->
           <i class="el-icon-download point" @click="download(scope.row)"></i>
-          <!--  只有属于自己的才可以delete or config -->
+          <!--  只有属于自己的才可以delete or config or share-->
           <i class="el-icon-delete point" @click="delete(scope.row)" v-if="scope.row.self"></i>
           <i class="el-icon-setting point" @click="mconfig(scope.row)" v-if="scope.row.self"></i>
+          <i class="el-icon-share" @click="mshare(scope.row)" v-if="scope.row.self"></i>
           <!--  显示文件信息 -->
           <i class="el-icon-info point" @click="showInfo(scope.row)"></i>
         </template>
@@ -107,6 +108,9 @@ export default {
       // TODO 向后端发送配置信息
 
       this.config.dialogVisible = false; // dialog关闭
+    },
+    mshare(row) {
+      // TODO 自己的文件可以进行分享，分享方式可以有密码或无密码
     },
     showInfo(row) {
       // 显示文件的信息
