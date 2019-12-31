@@ -8,7 +8,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: build and depoly vue project to githubspage
-      run: npm install
-    - name: Run a multi-line script
-      run: npm run serve
+      - name: checkout to vm
+      - uses: actions/checkout@v1
+      - name: Setup Node.js for use with actions
+      - uses: actions/setup-node@v1.1.0
+      - name: npm install, build
+        run: |
+          cd vue-filestore
+          npm install
+          npm run build
+      - name: commit
+      - run: |
+          git config user.email 1208894193@qq.com
+          git config user.name yuhang-dong-ci
+          git add .
+          git commit -m "ci update" -a
+      - name: Push changes
+      - uses: yuhang-dong/github-push-action@master
+      - with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
