@@ -9,9 +9,9 @@ jobs:
 
     steps:
       - name: checkout to vm
-      - uses: actions/checkout@v1
+        uses: actions/checkout@v1
       - name: Setup Node.js for use with actions
-      - uses: actions/setup-node@v1.1.0
+        uses: actions/setup-node@v1.1.0
       - name: npm install, build
         run: |
           cd vue-filestore
@@ -24,6 +24,6 @@ jobs:
           git add .
           git commit -m "ci update" -a
       - name: Push changes
-      - uses: yuhang-dong/github-push-action@master
-      - with:
+        uses: yuhang-dong/github-push-action@master
+        with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
