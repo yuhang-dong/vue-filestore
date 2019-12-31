@@ -23,4 +23,5 @@ module.exports = {
         proxy: proxyObj
     },
     publicPath:'',
+    outputDir:'docs'
 }
